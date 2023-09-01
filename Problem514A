@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int cntdig(long long int n){
+    int cnt =0 ;
+    while(n){
+        cnt++;
+        n=n/10;
+    }
+    return cnt;
+}
+int main(){
+    long long int n;
+    cin>>n;
+    long long int newno = 0;
+    int dig = cntdig(n);
+    int cnt = 0;
+    while(n){  
+        int a = n%10;  
+        if(a>=5) a = 9 - a; 
+        if(a==0 and dig==1) a=9;    
+        newno = a * pow(10,cnt) + newno;
+        n= n/10;
+        dig--;        
+        cnt++;       
+    }
+    
+    cout<<newno;
+    return 0;
+}
